@@ -1,5 +1,725 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
+\documentclass[12pt]{article}
+\usepackage[hmargin=3.4cm,a4paper]{geometry}
+\usepackage{polyglossia}
+\setdefaultlanguage{french}
+\frenchspacing
+\usepackage{amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage[thref,hyperref,amsmath]{ntheorem}
+\usepackage{titling}
+\usepackage{tikz}
+\usepackage{listings}
+
+\lstset{language=python,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{OliveGreen},
+    columns=fixed}
+
+%%%%% Environnements exercice et correction %%%%%
+\theoremstyle{break}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\newtheorem{cor}{Correction de l'exercice}
+\theoremheaderfont{\normalfont\bfseries}
+\newtheorem{exo}{Exercice}
+
+%%%%% Ensembles usuels %%%%%
+\newcommand{\NN}{\mathbb N}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\VV}{\mathbb V}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\CC}{\mathbb C}
+
+
+\pretitle{\begin{center}\LARGE\scshape}
+\title{Tremplin: Exercices}
+\posttitle{\end{center}}
+
+\preauthor{}
+\author{}
+\postauthor{}
+
 \begin{document}
-(Type your content here.)
+
+\maketitle
+
+\textit{Recueil d'exercices destinés aux séances de l'association Tremplin au lycée Marcel Pagnol d'Athis-Mons.}
+
+
+\section*{Énoncés}
+
+\begin{exo}
+On veut acheter plusieurs exemplaires de deux produits 1 et 2. On dépense 40€ en achetant 3 unités du bien 1 et 5 du bien 2.
+
+Quels sont les prix (possibles) des produits 1 et 2 ?
+
+On suppose désormais qu'acheter un de chaque coûte 10€. Déterminer les prix des deux produits.
+\end{exo}
+
+
+\begin{exo}[Algorithmes de tri, partie 1]
+Soit $n$ un nombre entier positif. Soit une liste de $n$ éléments $a_1,\ldots,a_n$. On suppose que l'on peut les comparer les uns aux autres, et que l'on veut les trier dans l'ordre croissant. Comment faire ?
+
+\textit{Indication: Comment faire pour choisir le plus petit élément de la liste ?}
+
+Combien d'opérations sont effectuées pour trier une liste de $n$ nombres ?
+\end{exo}
+
+
+\begin{exo}[Tasse de café et tasse de lait]
+On a deux tasses identiques, l'une avec du café, l'autre avec du lait. On prend une cuillère, et on prélève délicatement du lait dans le la tasse de lait. On verse le contenu dans la tasse de café, et on mélange bien. On prélève maintenant une cuillère du mélange qu'on verse dans la tasse de lait, et on mélange bien.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.2\textwidth]{grainCafe.png}
+    \includegraphics[width=0.3\textwidth]{LogoJava.png}
+    \includegraphics[width=0.2\textwidth]{potAlait.jpg}
+\end{figure}
+
+Y a-t-il plus de lait dans la tasse de café ou de café dans la tasse de lait ?
+\end{exo}
+
+
+\begin{exo}[Énigmes des cavaliers d'Al-Adli]
+Prenons un échiquier de 9 cases avec 1 cavalier blanc et 1 noir, sur deux cases opposées.
+
+Combien faut-il de coup pour que le cavalier blanc se retrouve sur la case initiale du noir et vice versa ?
+
+Sur le même échiquier, prenons maintenant 2 cavaliers blancs, placés dans les coins supérieurs, et 2 noirs, dans les coins inférieurs.
+
+Combien faut-il désormais de coups pour échanger les cavaliers ?
+
+Avec maintenant 3 cavaliers de part en d'autre, combien faut-il de coups ? \textit{Émettez une conjecture avant de résoudre le problème.}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.35\textwidth]{4Cavaliers.jpg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Celui qui lit dans les cartes...]
+Deux magiciens vous ont préparé un petit tour de magie :
+
+Le premier sort de la pièce en fermant bien la porte.
+
+Le second bat un paquet de 52 cartes (sans joker). Ils vous en fait piocher 5 au hasard. Il en prend une, la montre à tout le monde et vous la confie en vous demandant de la tenir secrète.
+
+Ils dispose les 4 autres cartes sur la table et fait entrer son collègue.
+
+Son collègue entre en disant : << Je sais quel carte vous cachez ! C'est facile, c'est le ... >>. Surprise : il a raison !
+
+Comment a-t-il fait pour deviner la carte que vous aviez si soigneusement dissimulée ?
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.35\textwidth]{Cartes.jpeg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[La prise de la Bastille... c'était quel jour ?]
+La prise de la Bastille, la prise de la Bastille... c'était quel jour de la semaine déjà ?
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.445\textwidth]{MarianneGuidantLePeuple.jpg}
+    \includegraphics[width=0.35\textwidth]{PriseDeLaBastille.jpg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Paradoxe des anniversaires]
+Dans votre classe, n'y a-t-il pas deux personnes qui ont leurs anniversaires le même jour ? Étrange coïncidence ? Combien êtes-vous dans votre classe ? À votre avis, combien de personnes minimum faut-il pour qu'il y ait plus d'une chance sur deux que deux anniversaires au moins tombent à la même date ?
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.3\textwidth]{AnniversaireGateau.jpg}
+    \includegraphics[width=0.35\textwidth]{ReflexionAnniversaire.jpg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Tétraèdre à couper]
+On prend un tétraèdre régulier. Il est facile de le couper en deux parties de même volume, voire de même aire latérale. Mais comment, en un seul coup de couteau, le couper en deux parties parfaitement superposables ?
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.26\textwidth]{CoupeTetraedre.png}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Marche aléatoire]
+Jean-Michel est saoul et revient du bistrot. À chaque pas, il a une chance sur deux d'aller vers l'avant ou vers l'arrière.
+\begin{enumerate}
+\item Jean-Michel peut-il espérer rentrer chez lui ?
+\item Quelle est, en moyenne, la distance dont Jean-Michel peut espérer s'éloigner de son point de départ au bout de $t$ pas ?
+\end{enumerate}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.9\textwidth]{marcheJM.png}
+\end{figure}
+
+\end{exo}
+
+
+\begin{exo}[Heures et équerres]
+Prenez une horloge, avec ses aiguilles qui tournent en tout sens. À 9h00 et 3h00, la grande et la petite aiguilles sont précisément perpendiculaires, mais quand cela se produit-il d'autre dans la journée ? Et combien de fois ?
+
+Une fois parvenu au résultat, vous pouvez recommencer avec un angle quelconque entre les aiguilles.
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.2\textwidth]{horloge.png}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Pile de crêpes]
+Germain fait des crêpes, beaucoup de crêpes. Il les empile à la va vite, sans se préoccuper de leurs tailles. Néanmoins, la pile est tout sauf présentable : les crêpes glissent les unes sur les autres en un tas informe. Il vous faut donc les ranger, de la plus grande en bas à la plus petit en haut. Pour ce faire, vous ne disposer que d'une seule action : vous glisser votre spatule quelque part entre deux crêpes, et vous retourner d'un bloc le dessus de la pile.
+
+Comment faire ? Combien de coups au minimum sont nécessaires pour ranger une pile de $72$ crêpes ?
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.33\textwidth]{PileDeCrepes.jpg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Tours de Hanoï]
+On dispose devant nous trois bâtons. Sur celui de gauche sont enfilés 8 disques percés, posés les uns sur les autres, du plus gros (en bas) au plus petit. On veut déplacer cette "tour" sur le bâtons de droite, un disque par un disque, sans jamais qu'un gros disque se retrouve sur un plus petit.
+
+Comment faire ? Combien de coups au minimum sont nécessaires ?
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.6\textwidth]{TourDeHanoi.jpeg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Deux portes]
+Devant vous, il y a deux portes : l'une mène chez le Père Noël et l'autre chez le Père Fouettard. Devant une porte se trouvent Suzie, et devant l'autre Germain : l'un dit toujours la vérité et l'autre est un éternel menteur, mais vous ignorez qui est qui... Vous ne pouvez poser qu'une seule question et ouvrir qu'une seule porte : que faire ?
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.3\textwidth]{PereNoel.jpg}
+    \includegraphics[width=0.3\textwidth]{PereFouettard.png}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Théorie des jeux : Coopération \& Trahison]
+Vous jouez avec votre voisin à un jeu d'argent. Les règles sont simples : à chaque tour, chacun peut choisir de miser 1€ ou de le garder pour lui. Si les deux joueurs misent, ils gagnent tous les deux 3€. Si l'un des deux mise mais pas l'autre, celui qui n'a pas misé emporte 5€ alors que l'autre n'a rien. Si personne ne mise, chacun repart avec ses 1€.
+
+On joue 15 tours, puis on regarde l'argent amassé.
+
+Proposez chacun une stratégie (c'est-à-dire un ensemble de règles régissant votre comportement), et mettez-là en pratique par binôme, puis changer de binôme jusqu'à avoir affronté tous vos camarades. Notez au fur et à mesure les résultats sur les feuilles dédiées.
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.6\textwidth]{CooperationTrahison.jpg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Chat échaudé craint l'eau froide]
+On vous a toujours dit que l'eau chaude est moins dense que l'eau froide, plus dilatée ? Mais en êtes-vous sûr ? Proposez plusieurs expérience tendant à prouver que l'eau chaude est moins dense que l'eau froide (ou le contraire).
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.8\textwidth]{LeChat1.jpg}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.35\textwidth]{LeChat2.jpg}
+    \includegraphics[width=0.35\textwidth]{LeChat3.jpg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Pièce qui roule...]
+On vous donne deux pièces de monnaie (temporairement). Vous faites rouler l'une sur l'autre, tranche contre tranche. Lorsque la pièce extérieure est revenue à son point de départ, combien de tour sur elle-même a-t-elle fait ?
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.4\textwidth]{PieceDeMonnaie.jpg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Est-ce que la taille compte vraiment ?]
+La Terre est bien plus grande qu'un ballon de foot, non ? On prend un ballon de foot et la Terre, et on augmente leur deux rayons d'un mètre. Du ballon et de la Terre, la quelle des deux circonférences augmentent le plus ?
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.4\textwidth]{Terre.jpg}
+    \includegraphics[width=0.4\textwidth]{BallonFoot.jpg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Les couleurs qui dansent]
+Le lait n'est pas que pour les chat, les êtres humains en boivent aussi des quantités. En particulier, la mutation la plus rapide de l'espèce humaine, et aussi l'une des plus récentes, est celle qui permet à environ $1/3$ de la population humaine de digérer le lait à l'âge adulte (la tolérance au lactose). Pour plus d'informations sur cette mutation, regarder cette vidéo : \url{https://www.youtube.com/watch?v=nv44xCo24rg}. Vous pouvez par exemple dresser la statistique sur l'ensemble de vos parents.
+
+Mais connaissez-vous bien les propriétés du lait ? Dans une écuelle, on verse du lait et qu'on tache avec des gouttes de colorant. On imbibe ensuite un coton-tige d'un peu de liquide vaisselle. En touchant la surface du lait avec le coton-tige, les couleurs se mettent soudain à danser sur le fond lactescent. Expliquez ce phénomène.
+
+D'ailleurs, vous êtes vous déjà demandé pourquoi le lait est blanc ?
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.4\textwidth]{LaitColorants.jpg}
+    \includegraphics[width=0.3\textwidth]{LaitColorants2.jpg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}["Le passé est un œuf cassé, l'avenir est un œuf couvé."]
+Pour éviter de casser des œufs, évitons de les toucher ! Il faut néanmoins écailler l’œuf dur... comment faire ?
+
+Pire encore, pour conserver les œufs, rien de mieux que de les mettre en bouteille (de verre, bien sûr, c'est plus solide et plus stérile). Par contre, vous vous êtes trompé de bouteille : son goulot est trop petit. En appuyant très fort, l’œuf peut rentrer, oui, mais sans les toucher, ça relève du défi. Heureusement, vous êtes là pour relever ce défi !
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.24\textwidth]{OeufEcaille.jpg}
+    \includegraphics[width=0.2\textwidth]{OeufEnBouteille.jpg}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[En coupant un cube]
+On coupe un cube par un plan. Quelles sont les sections possibles ? Comment obtenir une section de périmètre maximal ? D'aire maximale ?
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.2\textwidth]{Cube.png}
+    
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Dans le coin de l'ennui]
+Daniel s'ennuie en cours de mathématiques. Il sort alors sa règle et commence à jouer avec : il la place au coin de sa table et la fait bouger, créant ainsi diverses figures. Il se pose la question suivante : si je prend ma règle et que je joins les deux bords de mon coin de table, quelle est l'aire du plus grand triangle que je puisse former ?
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.7\textwidth]{TriangleCoinDeTable.png}
+    
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Sous la courbe, un rectangle]
+Soit $C_f$ le graphe d'une fonction f homographique. Entre les axes du graphique et un point quelconque de $C_f$, on trace un rectangle. On mesure l'aire de ce rectangle. On change de point sur la courbe, on construit un nouveau rectangle, on en mesure de nouveau l'aire : on trouve la même valeur !
+
+Expliquez ce phénomène.
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.7\textwidth]{RectangleHomographique.png}
+    
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Triple cercle]
+On trace trois cercles tangents de centres alignés. On trace le segment passant par les trois centres. On choisit un angle $\theta$, et on place sur chaque cercle le point à $\theta$ radians. Pour chacun de ces trois points, on trace le segment le reliant au(x) centre(s) du (des) cercle(s) voisin(s).
+
+On obtient une figure centrale qui semble être un quadrilatère particulier. Le reconnaissez-vous ? Démontrez que, quelque soit $\theta$, ce quadrilatère est bien particulier, puis calculer son aire en fonction du rayon $R$ des cercles et de l'angle $\theta$.
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.7\textwidth]{TripleCercle.png}
+    
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Un carré dans la parabole]
+On prend un parabole branches vers le haut. On nomme A son sommet, et on place un point mobile B sur la branche de droite. On trace le segment [AB], puis on construit le carré engendré par ce segment. Pour deux positions bien spécifiques du point B, le carré construit à 3 point sur la parabole. Calculer les aires correspondant à ces deux situations.
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.35\textwidth]{CarreParabole.png}
+    \includegraphics[width=0.4\textwidth]{CarreParabole2.png}
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Le sommet de la parabole]
+On trace une parabole quelconque d'équation $aX^2+bX+c$. On marque le sommet, à $b$ et $c$ fixés, on fait varier $a$ de $-\infty$ à $+\infty$. On regarde la figure obtenue. On recommence en fixant $a$ et $c$ et on fait varier $b$. En fin, on trace la courbe en faisant varier $c$.
+
+Sur le dessin qui suit, identifiez quelle courbe correspond à quelle variable. Déterminez les équations qui correspondent à chaque courbe (en fonction de $a$, $b$ et $c$). Il est conseillé de commencer par la courbe engendrée par les variations de $c$, puis celles de $a$, et enfin de $b$.
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.6\textwidth]{SommetParabole.png}
+
+\end{figure}
+\end{exo}
+
+
+\begin{exo}[Le paradoxe des Monty Hall]
+Un présentateur TV facétieux vous a organisé un petit jeu. Vous êtes placé devant trois portes fermées. Derrière l'une d'elles se trouve une voiture et derrière chacune des deux autres se trouve une chèvre. Tout d'abord, on vous demande de désigner une porte, puis le présentateur ouvre une porte qui n'est pas celle que vous avez choisie, et qui cache une chèvre. Vous avez a alors le droit ou bien d'ouvrir la porte choisie initialement, ou bien de changer de porte pour ouvrir la troisième.
+
+Que devez-vous faire ? Quelles sont vos chances de gagner la voiture ?
+
+\begin{figure}[!ht]
+	\centering
+    \includegraphics[width=0.55\textwidth]{MontyHall.jpg}
+
+\end{figure}
+\end{exo}
+
+
+
+\pagebreak
+
+%%%%%%%%%%% CORRECTIONS %%%%%%%%%%%%%
+
+\section*{Corrections des exercices}
+
+\begin{cor}
+\textit{L'exercice peut se traiter comme un exercice d'arithmétique modulaire avec une équation diophantienne, ou encore comme un exercice de géométrie dans le plan, en effectuant le tracé de la droite d'équation cartésienne $3x + 5y = 40$ et en en identifiant les points à coordonnées entières.}
+\end{cor}
+
+
+\begin{cor}
+La stratégie \textit{naïve} consiste en sélectionner le plus petit élément de la liste, le permuter avec l'élément en dernière position, et recommencer sur les $n-1$ derniers éléments de la liste résultat.
+
+Bien sûr, il faut d'abord définir un algorithme permettant de sélectionner le plus petit élément d'une liste: cela se fait avec un ordre de grandeur de $n$ opérations.
+
+Voici une implémentation d'un tel algorithme dans le langage \verb|Python|:
+
+\begin{lstlisting}
+def min_liste(l):
+	n = l.length
+	indMin = 0
+    for i in range(1,n):
+    	if l[indMin] < l[i]:
+        	indMin = i
+    return indMin
+
+def tri_liste(l):
+	n = l.length
+    for i in range(n):
+    	indMin = min_liste(l[i:])
+        l[i], l[indMin] = l[indMin], l[i]
+\end{lstlisting}
+
+Finalement, on obtient un algorithme de tri, appelé \textit{tri par sélection (du minimum)} qui fait de l'ordre de $n^2$ opérations. C'est un bon début pour un débutant en algorithmique, mais on peut faire bien mieux\ldots
+
+Vidéo illustrant le tri par minimum : \url{https://www.youtube.com/watch?v=0-W8OEwLebQ}
+\end{cor}
+
+
+\begin{cor}[Tasse de café et tasse de lait]
+\textit{Ramener des verres en plastique pour faire l'expérience.}
+
+3 stratégies de réponses peuvent être présentées. Toutes démontrent qu'il y a autant de lait dans la tasse de café que de café dans la tasse de lait.
+\newline \newline
+
+
+\underline{Première méthode : symétrie}
+
+Mettons qu'on obtienne qu'il y a plus de café dans le lait que de lait dans le café. Recommençons l'expérience en inversant seulement la position initiale des tasses : on obtient alors l'inégalité contraire. Du coup, il y a égalité.
+
+\textit{Symétrie d'une relation d'ordre; Raisonnement par double implication...}
+\newline
+
+\underline{Deuxième méthode : invariant de cuillère}
+
+Est-ce que la taille de la cuillère influence le résultat ? Non ! Donc je peux soit prendre une cuillère de volume nul, soit une de volume égal à celui d'une tasse. Dès lors, il y a autant de lait dans le café que de café dans le lait.
+
+\textit{Continuité, constance; Raisonnements sur des invariants}
+\newline
+
+\underline{Troisième méthode : calcul de la concentration}
+
+On peut calculer les 6 nombres importants à chaque étape du processus : concentration en café, concentration en lait et volume de liquide dans chaque tasse. Après des calculs casse-pieds, on s'en sort avec les mêmes concentrations des deux côtés.
+
+\textit{Identifications des paramètres clés; Mise en place de méthodes de calcul; Concentrations, quantité et volumes; Rigueur de calcul}
+\end{cor}
+
+
+\begin{cor}
+\textit{Ramener un plateau d'échecs avec 3 cavaliers de chaque couleur si possible. Ramener un ordinateur avec ChessBase.}
+
+Vidéo d'explication du problème (avec les solutions des nombres de coup) : \url{https://www.youtube.com/watch?v=YfI7iQrqKGg}
+
+\textit{Visualisation des coups à l'avance ; Mise en place d'une stratégie ; essais et erreurs ; Introduction aux jeux mathématisés ; Introduction à un nouveau moyen d'apprendre : Youtube}
+\newline
+
+Vidéo qui décortique la modélisation de l'échiquier pour le cavalier : \url{https://www.youtube.com/watch?v=HcUvd-v6x0o}
+
+\textit{Changement de perspective ; Voir le monde selon le point de vue du cavalier ; Nouvelle modélisation = nouvelles informations ; Faire une partie d'échecs ?}
+\end{cor}
+
+
+\begin{cor}
+\textit{Cet exercice, en plus de susciter des exclamations de joie surprise, introduit la théorie de l'information, de l'encodage et de la compression de données.}
+
+Pour réaliser ce tour, il faut noter qu'à chaque étape, c'est le magicien dans la pièce qui organise les choses. C'est lui qui choisi quelle carte est dissimulée et comment sont disposées les 4 autres cartes. Cela va permettre de transmettre un message au magicien resté à l'extérieur.
+
+Tout d'abord, 5 cartes sont piochées. D'après le principe de \textsc{Dirichlet} (principe des tiroirs), 2 au moins sont de la même couleur. Le magicien en confie une pour qu'elle soit dissimulée et met l'autre sur la table, le plus près de la porte. Celui qui entre saura immédiatement de quelle couleur est la carte qu'il doit identifier (pique, trèfle, cœur ou carreau). Ensuite, il reste à identifier laquelle des 12 cartes (l'une étant déjà sortie sur la table) est la bonne.
+
+Celui resté dans la salle dispose de 3 cartes pour coder 12 informations de manière unique. Il peut par exemple se servir des permutations de $S_{3}$. En définissant un ordre sur les cartes, on les numérote dans sa tête 1, 2 et 3, puis on les mélange pour coder pour les nombres de 1 à 6 ($\#S_{3} = 6$). En jouant sur l'orientation de la première carte (horizontale ou verticale par exemple), on double le nombre d'information possible. Il n'y a plus qu'à se mettre d'accord ensemble à l'avance et à bien réviser !
+
+\textit{Introduction à la cryptologie ; Introduction aux permutations ; Introduction aux clé publique / clé privée ; Introduction à l'oral de l'Ulm ; Introduction à l'art d'illusionner le public}
+\end{cor}
+
+
+\begin{cor}
+Un peu de culture pour commencer : la prise de la Bastille a eu lieu le... 14 juillet 1789 ! Le tableau de gauche est un \textsc{Eugène Delacroix} et celui de droite un \textsc{Jean-Pierre Houël}.
+
+Pour trouver le jour de la semaine correspondant, on commence par trouver que jour de la semaine tombe le 14 juillet de l'année en cours, puis on utilise le fait que $365 = 1 [7]$ pour dire que chaque année en arrière fait remonter d'un jour dans la semaine. Reste à prendre en compte les années bissextiles (sachant qu'elles sont multiple de 4 mais pas de 400 sauf de 2000). \textbf{Il est conseillé de commencer par calculer le jour de la semaine de sa naissance.} La prise de la Bastille a eu lieu un mardi.
+
+\textit{Introduction à l'arithmétique modulaire, au programme de Spé Maths ; Mener des calculs qui se complexifient ; Chercher par soi-même ; Connaissance des années bissextiles ; Culture générale}
+\end{cor}
+
+
+\begin{cor}
+On pourra utiliser la page suivante : \url{https://fr.wikipedia.org/wiki/Paradoxe_des_anniversaires}
+
+...
+
+\textit{Dénombrement ; Principe des tiroirs ; Réflexion par la contraposée ; Approximation du résultat ; Fonctions exponentielles et logarithme (Terminale)}
+\end{cor}
+
+
+\begin{cor}
+L'idée est de mettre en place une démarche progressive. D'abord on se demande si le plan de coupe peut passer par un seul sommet (non, sans quoi une partie contiendrait deux sommets et l'autre un seul). Peut-il passer par 2 sommets (non, les deux parties sont alors chirales). Dès lors, le plan ne passe par aucun sommet. Pour des raisons de symétrie, il doit en plus passer par toutes les arrêtes et toutes les faces.
+
+On teste enfin la coupe restante la plus logique : celle qui passe par les milieux de chaque arrête, et ça marche ! On peut noter au passage que la section coupé est un carré : ce n'est pas un hasard de trouver un polygone régulier.
+
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=0.3\textwidth]{CoupeTetraedreAvecSolution.png}
+    \includegraphics[width=0.45\textwidth]{CoupeTetraedreAvecSolution2.png}
+\end{figure}
+\end{cor}
+
+
+\begin{cor}
+\textit{Il s'agit évidemment d'un exercice de probabilités sur les variables aléatoires. L'effort de formalisation porte surtout sur modéliser correctement le déplacement de l'ivrogne par une suite de variables de Rademacher.}
+
+On note $X_t$ la position de Jean-Michel à l'instant $t\in\NN$: c'est une variable aléatoire réelle discrète puisqu'il se déplace d'une unité à chaque instant.
+
+Le déplacement entre les instants $t-1$ et $t$ est la variable aléatoire $\xi_t := X_t-X_{t-1}$. Cette variable aléatoire suit la loi de probabilité
+\[
+\PP(\xi_t = 1) = \PP(\xi_t = -1) = \frac{1}{2}. 
+\]
+Cette variable aléatoire finie admet pour espérance $\EE(\xi_t) = 0$, et les variables $(\xi_t)_{t\geq 0}$ suivent la même loi et sont indépendantes.
+
+Un calcul simple montre que la position de Jean-Michel à l'instant $t$ est:
+\[
+X_t = \sum_{k=1}^t \xi_k,
+\]
+donc que son espérance mathématique, la position moyenne de Jean-Michel, est $\EE(X_t) = 0$.
+
+\textit{La deuxième question, plus ambiguë, fait appel à quelques notions de statistiques, et peut servir d'introduction au théorème central limite pour faire le pont entre les probabilités et la maigre introduction aux statistiques en classe de Seconde.}
+
+On cherche à donner un encadrement des positions successives $X_t$ de Jean-Michel qui soit vérifié dans la majeure partie des cas.
+
+La variance de $X_t$ est donnée par la somme des variances des $(\xi_t)_{t\geq 0}$, qui valent $1$:
+\[
+\VV(X_t) = \sum_{k=1}^t \VV(\xi_k) = t.
+\]
+L'écart-type est donc $\sigma(X_t) = \sqrt{t}$.
+
+On a d'après le théorème central limite
+\[
+\frac{X_t}{\sqrt{t}} \xrightarrow[t\to\infty]{\PP} N
+\]
+où $N$ est une variable normale centrée réduite.
+
+\textit{Il faut donc introduire la notion de convergence en loi d'une variable aléatoire.}
+
+L'intuition suggère qu'après $t$ pas, la position de Jean-Michel serait bornée par l'écart-type $\sigma(X_t)$. Cherchons donc une constante positive $c > 0$ telle que $|X_t| \leq c\sqrt{t}$ avec une << bonne certitude >> :
+\[
+\PP\left(-c\sqrt t \leq X_t \leq c\sqrt t\right) = 0,\!99
+\]
+ce qui donne sur le temps long $\PP(-c \leq N \leq c) = 0,\!99$ soit $2\Phi(c) - 1 = 0,\!99$ où $\Phi$ est la fonction de répartition de la loi normale centrée réduite. On obtient alors $c\approx 1,\!98$.
+\end{cor}
+
+
+\begin{cor}
+Cet exercice est assez difficile et demande à ce que les calculs soient menés avec dextérité, intelligence et concentration.
+
+...
+
+\textit{Travail de concentration ; Angles orientés ; Arithmétique modulaire ; Dessin, visualisation et imagination}
+\end{cor}
+
+
+\begin{cor}
+Le plus simple est de présenter un algorithme récursif. L'idée principale est d'amener la plus grande crêpe en bas de la pile : on repère la plus grande crêpe dans la pile, on place la spatule juste en dessous, puis on retourne le haut. La plus grande crêpe est alors tout en haut de la pile. Il suffit de retourner la totalité de la pile (en mettant la spatule tout en dessous), pour que la plus grande crêpe soit en bas. 
+
+On recommence avec les $71$ crêpes supérieurs pour mettre la deuxième plus grande sur la première plus grande, puis avec les $70$ supérieurs, etc. En fait, on trie la pile récursivement.
+
+Pour calculer la complexité, on remarque qu'il faut 2 étapes pour mettre une grande crêpe en bas, donc il faut $2n$ retournements (au pire) pour trier la pile.
+
+\textit{Introduction à la récursion ; Dessin, visualisation et imagination ; Introduction à la complexité ; Introduction aux maths dans le quotidien}
+\end{cor}
+
+
+\begin{cor}
+C'est exercice est assez classique, il poursuit le précédent. Là encore, il s'agit de récursivité.
+
+Commençons par apprendre à déplacer la plus grosse pierre du bâton de gauche à celui de droite. Raisonnons par récurrence. Si on sait déplacer une tour de n disques. Pour déplacer une tour de n+1 disques, on déplace les n disques supérieurs sur le bâton central, puis on déplace le plus grand disque maintenant libre sur le bâton de gauche, et on déplace à nouveau les n disques du bâton central sur celui de gauche. L'ensemble de la tour à bien été déplacée.
+
+La complexité se calcul par récurrence : $C_{n+1} = C_n + 1 + C_n$. En posant $u_n = C_n + 1$, on a $u_{n+1} = 2u_n$, puis $u_n = 2^n$ (car $u_1 = C_1 + 1 = 1+1 + 2$) et enfin $C_n = 2^n + 1$.
+
+\textit{Introduction à la récursion ; Dessin, visualisation et imagination ; Introduction à la complexité ; Introduction aux maths dans le quotidien ; Culture mathématique}
+\end{cor}
+
+
+\begin{cor}
+On pourra commencer par rappeler qui est le père Fouettard. Pour rendre cet exercice ludique, on ferme les deux battants du tableau, puis on dessine une porte sur chacun. derrière ces battants, on dessine d'un côté le père Noël et de l'autre le père Fouettard. Les deux membres du binôme se placent chacun devant un battant du tableau.
+
+En posant la question, il faut réussir à obtenir une information indépendante de la situation. Il y a quatre situations possibles :\begin{enumerate}
+\item Germain est devant chez le père Noël et ment.
+\item Suzie est devant chez le père Noël et ment.
+\item Germain est devant chez le père Noël et dit la vérité.
+\item Suzie est devant chez le père Noël et dit la vérité.
+\end{enumerate}
+
+Pour obtenir une phrase qui ne dépend plus de la situation, il faut créer un invariant : impliquer et Germain et Suzie dans une même phrase. Par exemple, on va voir Suzie et on lui demande : << Est-ce que Germain m'aurait dit que je suis devant chez le père Noël ? >>. En impliquant ainsi les deux gardiens, on "somme" le mensonge et la bonne foi, permettant d'obtenir une information, non pas fiable, mais prévisible, dont on peut extraire l'information voulue. Le même principe se retrouve lorsqu'on s'intéresse au point fixe d'une application ou à la somme d'un ensemble : on somme des informations pour faire disparaître leur particularités dont on ignore tout dans la masse sur laquelle on peut alors travailler.
+
+\textit{Théorie des invariants ; Casse-tête logique ; Jeux en classe}
+\end{cor}
+
+
+\begin{cor}
+Il n'y a pas vraiment de correction. La meilleur stratégie, nommée "Copycat" consiste à copier l'adversaire : on commence par coopérer et ensuite on joue le dernier coup de l'opposant (s'il vient de nous trahir, on trahi, sinon on coopère). Pour les différentes stratégies intéressantes, voir cette vidéo : \url{https://www.youtube.com/watch?v=StRqGx9ri2I}
+
+L'un des deux membres du binôme peut jouer la stratégie méchante et l'autre le Copycat. Les élèves devront alors faire la différence entre gagner le plus de matches et gagner au total (le plus d'argent).
+
+\textit{Introduction à la théorie de jeux ; Initiative personnelle ; Sensibilisation sur le quotidien ; Jeu à somme non constante ; Différence entre gagner ponctuellement et gagner au total}
+\end{cor}
+
+
+\begin{cor}
+Il y a plusieurs méthodes possibles, le but est que les élèves proposent des méthodes peu banales. Deux méthodes sont "classiques" : les colorants (on colore l'eau froide en bleu et l'eau chaude en rouge, en versant dans un aquarium d'eau tempérée, on voit la séparation) et la salinité (comme elle est dilatée, l'eau chaude peut accueillir plus de sel que l'eau froide, il suffit de mesurer la saturation des deux).
+
+\textit{Initiative personnelle ; Protocole expérimental ; Dilatation et contraction ; Think outside the boxe}
+\end{cor}
+
+
+\begin{cor}
+On pourrait croire que qu'il suffit d'un seul tour, mais il en faut deux : on peut par exemple regarder le mouvement du centre de la pièce extérieure. Il parcourt un cercle de rayon 2, donc doit faire 2 tours.
+
+Bonne chance pour expliquer cela correctement aux élèves !
+
+\textit{Imagination ; Combattre ses préjugés ; Jeu}
+\end{cor}
+
+
+\begin{cor}
+De la même manière que pour l'exercice précédent, le plus simple est de regarder l'augmentation de rayon : comme elle est identique dans les deux cas, la circonférence augmente de $2\pi$, donc l'augmentation est identique.
+
+Par contre, l'aire et le volume ne sont pas linéaires en R (le rayon), donc l'augmentation ne sera pas identique.
+
+\textit{Introduction aux processus linéaires ; Importance ou non de la taille de départ ; Illusion de simplicité}
+\end{cor}
+
+
+\begin{cor}
+
+\end{cor}
+
+
+\begin{cor}
+Pour dissoudre la coquille de l’œuf, on utilise du vinaigre. Le Vinaigre, très acide, permet de "cuire" les aliments. La coquille est dissoute, et ensuite l'albumine (le blanc) est dénaturé, et se solidifie en surface en une seconde coquille. On obtient un œuf presque cru (il a été un peu chauffé par la réaction néanmoins), entouré par une membrane souple : c'est une balle rebondissante !
+
+Ensuite, pour faire rentrer un œuf dur dans une bouteille de verre, il suffit de chauffer l'air intérieur qui, en refroidissant se contracte et aspire l’œuf.
+
+\begin{figure}[!ht]
+	\centering
+    \includegraphics[width=0.35\textwidth]{ExplicationOeuf.jpg}
+    
+\end{figure}
+
+\textit{Protocole scientifique ; Mécanique des fluides ; Dilatation et contraction ; Chimie acido-basique ; Méthode de cuisson ; Macération ;Cuisine moléculaire ; Jeux}
+\end{cor}
+
+
+\begin{cor}
+Il existe plein de manières de couper un cube. On peut faire des triangles (quelconques, isocèles, équilatéraux ou rectangle), des quadrilatères (quelconques, rectangles ou carrés), des pentagones (réguliers ou non), et des hexagones (réguliers ou non). En faisant un hexagone qui passe par le milieu de chaque face, on obtient un figure de périmètre $3c \sqrt{2}$, ce qui est le maximum (je n'ai pas vérifié). L'aire obtenue est de $3c \sqrt{3}/4$.
+\end{cor}
+
+
+\begin{cor}
+En utilisant le théorème de Pythagore, on obtient la longueur du second côté du coin : $\sqrt{l^2 - x^2}$. Ensuite, l'aire obtenue vaut $A(x) = x \sqrt{l^2 - x^2}$. Dès lors, le plus simple pour obtenir le maximum de $A(x)$ est de calculer $f = A^2$ en fonction $t = x^2$.
+
+On obtient :
+
+$f(t) = t(l^2-t)$, donc on a une forme factorisée d'un polynôme du second degré, son extremum (qui est bien un maximum) est atteint en $t = l^2/2$, c'est-à-dire $x = l \sqrt{2}/2$, donc $A = l^2/4$.
+
+On obtient bien ainsi l'unique maximum de $A$ car l'application $x \rightarrow \sqrt{x}$ est croissante dont son application ne change pas les variations.
+
+On aurait pu se servir d'arguments de symétrie, qui démontre qu'il y au moins un maximum et que s'il n'y en a qu'un seul, il est atteint pour un triangle isocèle, mais rien ne montre qu'il n'y a qu'un seul maximum.
+\end{cor}
+
+\begin{cor}
+En connaissant les coordonnées du point central (qu'on obtient avec les asymptotes, voire en Terminale), le problème se résout facilement : $(-d/c, a/c)$. Donc le graphique n'est qu'une translation d'un graphe centré à l'origine par un vecteur de coordonnées $(-d/c, a/c)$. Les aires ne sont pas modifiées par cette translation.
+
+On calcule donc l'aire pour une graphe homographique centré (i.e. : $d = 0$ et $a = 0$). Pour une abscisse $x$, on a l'ordonnée $y = f(x) = b/(cx)$. L'aire vaut donc :
+
+$A = x*y = b/c$ qui est une constante ! Donc tous les rectangles formables ont la même aire. On peut vérifier que cette valeur correspond bien aux indications portées sur la figure.
+\end{cor}
+
+
+\begin{cor}
+On va utiliser la géométrie vectorielle et deux propriétés des parallélogrammes :\begin{enumerate}
+\item \textit{Caractérisation} : ABCD est un parallélogramme ssi $\overrightarrow{AB} = \overrightarrow{DC}$.
+\item \textit{Diagonales} : Les diagonales d'un parallélogramme se coupent en leurs milieux.
+\end{enumerate}
+
+On nomme les cercles $C_0$ (au centre), $C_1$ (à gauche) et $C_2$ (à droite), et $M_i$ le point mobile du cercle $C_i$. On sait par construction que $\overrightarrow{C_0 M_0} = \overrightarrow{C_1 M_1} = \overrightarrow{C_2 M_2}$. Donc $C_0 M_0 M_1 C_1$ (dont nous nommons $I$ le centre) et $C_0 M_0 M_2 C_2$ (dont nous nommons $J$ le centre) sont des parallélogrammes d'après la première propriété. En appliquant la seconde propriété, on en déduit que $\overrightarrow{I M_0} = 1/2 * \overrightarrow{C_1 M_0}$ et $\overrightarrow{C_0 J} = 1/2 * \overrightarrow{C_0 M_2}$.
+
+Reste à montrer que : $\overrightarrow{C_1 M_0} = \overrightarrow{C_0 M_2}$. Or nous savons que : $\overrightarrow{C_0 M_0} = \overrightarrow{C_2 M_2}$ ; et que (relation de \textsc{Chasles}): $\overrightarrow{C_1 M_0} = \overrightarrow{C_1 C_0} + \overrightarrow{C_0 M_0}$ et $\overrightarrow{C_0 M_2} = \overrightarrow{C_0 C_2} + \overrightarrow{C_2 M_2}$. Nous devons donc montrer finalement que : $\overrightarrow{C_1 C_0} = \overrightarrow{C_0 C_2}$.
+
+Cette dernière propriété se déduit de la construction des trois cercles : ils sont tangents de même rayon et de centres alignés, donc $C_0$ est le milieu du segment $[C_1 C_2]$. Cela induit immédiatement la propriété voulue.
+
+Nous avons démontré que la figure centrale $C_0 J M_0 I$ vérifie $\overrightarrow{C_0 J} = \overrightarrow{I M_0}$, c'est ainsi un parallélogramme ! Calculons sont aire en fonction du rayon $R$ des cercles et de l'angle $\theta$.
+
+Le plus simple est de calculer l'aire du triangle $C_1 M_0 C_2$ et de soustraire celles des deux triangles $C_1 I C_0$ et $C_0 J C_2$. On sait que la hauteur du grand triangle $C_1 M_0 C_2$ est donnée, par définition, par $R sin(\theta)$. D'après le théorème des milieux, les hauteurs des petits triangles $C_1 I C_0$ et $C_0 J C_2$ valent toutes deux $1/2 * R sin(\theta)$. On calcule l'aire d'un triangle par $A = 1/2 * hauteur * base$, donc :
+$A_{C_0 J M_0 I} = A_{C_1 M_0 C_2} - A_{C_1 I C_0} - A_{C_0 J C_2}$
+
+Soit : $A_{C_0 J M_0 I} = 1/2 * R sin(\theta) * 4R - 2 * 1/2 * 1/2 * R sin(\theta) * 2R$
+
+Et finalement : $A_{C_0 J M_0 I} = R^2 sin(\theta)$
+\end{cor}
+
+
+\begin{cor}
+
+\end{cor}
+
+
+\begin{cor}
+
+\end{cor}
+
+
+\begin{cor}
+Ce "paradoxe" est classique. On peut le mettre en illustration en classe avec des boîtes. Avant d'exposer la résolution, on peut exposer le point de vue à 100 portes : s'il y avait 100 portes et non 3, avec toujours une seule voiture, et que le présentateur ferme 98 portes menant à une chèvre, change-t-on de porte ?
+\begin{figure}[h!]
+	\centering
+    \includegraphics[width=1.1\textwidth]{SolutionMontyHall.JPG}
+    
+\end{figure}
+
+\textit{Arbre de probabilité ; Analyse de la situation ; Paradoxe mathématique ; Fonction d'onde ; Choix}
+\end{cor}
+
 \end{document}
