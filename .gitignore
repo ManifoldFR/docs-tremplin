@@ -7,3 +7,5 @@
 *.out
 *.fls
 *.sta
+*.toc
+*.gz
