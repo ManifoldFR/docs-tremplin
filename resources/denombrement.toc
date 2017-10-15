@@ -1,0 +1,13 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {paragraph}{Problème 1}{2}{section*.2}
+\contentsline {paragraph}{Problème 2}{2}{section*.4}
+\contentsline {section}{\numberline {2}Produit cartésien}{2}{section.2}
+\contentsline {section}{\numberline {3}Applications}{4}{section.3}
+\contentsline {section}{\numberline {4}Dénombrements classiques}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}Ensemble des applications, $p$-uplets}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Nombre de parties}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Nombre d'injections}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Dérangements de $\zint {1,n}$}{8}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Nombre de parties de taille fixée}{8}{subsection.4.5}
+\contentsline {section}{\numberline {5}Exercices}{9}{section.5}
