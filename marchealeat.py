@@ -22,7 +22,7 @@ def graphe(n):
     ax.set_ylabel("Position Xt")
     ax.grid()
     canvas = plt.FigureCanvasBase(figure=fig)
-    canvas.print_figure("marcheJM.png",dpi=100)
+    canvas.print_figure("marcheJM.pdf",dpi=100)
 
 if __name__ == "__main__":
     graphe(2000)

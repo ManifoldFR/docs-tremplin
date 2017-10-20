@@ -64,12 +64,14 @@
 
 \maketitle
 
-\begin{exer}
-Un hacker cherche à s'introduire dans les réseaux informatiques de l'entreprise \textsc{Thalès}, en travaillant avec un collègue en Russie (toute ressemblance avec des évènements réels est entièrement fortuite\ldots).
+\section*{Énoncés}
 
-Il communique avec lui via une suite de messages encodés sur 2 bits (0 ou 1), mais il doit passer par une  suite de $N$ ordinateurs différents. Pour un message donné, chaque ordinateur intermédiaire à une probabilité $q\in{]0,1[}$ de le modifier (0 est changé en 1 et réciproquement).
+\begin{exer}
+Un espion cherche à s'introduire dans les réseaux informatiques de l'entreprise \textsc{Thalès}, en travaillant avec un groupe de pirates basé à Hong Kong.
+
+Il communique avec lui via une suite de messages encodés sur 2 bits (0 ou 1), mais il doit passer par une suite de $N$ terminaux << zombifiés >> différents. Pour un message donné, chaque ordinateur intermédiaire a une probabilité $q\in{]0,1[}$ de le modifier (0 est changé en 1 et réciproquement).
 \begin{enumerate}
-	\item Pour tout $n\in\NN$, on note $p_n$ la probabilité que le $n$-ème ordinateur reçoive le bon message. Déterminer une relation entre $p_{n+1}$ et $p_n$. 
+	\item Pour tout $n\in\NN$, on note $p_n$ la probabilité que le $n$-ème ordinateur renvoie le bon message. Déterminer une relation entre $p_{n+1}$ et $p_n$. 
 	\item En déduire la probabilité que son collègue, sur le $N$-ème ordinateur, reçoive la bonne information.
 	\item Que dire lorsque $N$ est très grand ? Pourquoi est-ce logique ?
 \end{enumerate}
@@ -78,15 +80,15 @@ Il communique avec lui via une suite de messages encodés sur 2 bits (0 ou 1), m
 \textit{Exercice de probabilité et de suites. Fait intervenir la notion de limite.}
 
 \begin{exer}[Une introduction au théorème de Hahn-Banach]
-On note $\RR^3$ l'espace euclidien à trois dimensions.
+On se place dans l'espace euclidien à trois dimensions $\RR^3$.
 \begin{enumerate}
-	\item Soient $A$ et $B$ deux points distincts de l'espace. Montrer qu'il existe un plan $(\mathcal{P})$ qui les sépare.
+	\item Soient $A$ et $B$ deux points distincts de l'espace. Montrer qu'il existe un plan $(\mathcal{P})$ qui les sépare. On en explicitera l'équation cartésienne à partir des coordonnées des points $A$ et $B$ dans le repère orthonormé canonique $(0,\vec{\imath},\vec{\jmath},\vec k)$.
 	\item On considère désormais deux droites disjointes $(\Delta_1)$ et $(\Delta_2)$. Montrer qu'il existe un plan qui les sépare.
 	\item Même question avec deux sphères $(\mathcal S_1)$ et $(\mathcal S_2)$ de l'espace.
 \end{enumerate}
 \end{exer}
 
-\textit{Exercice de géométrie analytique. Formalise une notion de séparation d'objets géométriques.}
+\textit{Exercice de géométrie analytique. Formalise une notion de séparation d'objets géométriques. Le théorème de Hahn-Banach est un des théorèmes fondamentaux de l'analyse fonctionnelle, branche des mathématiques qui étudie les fonctions prenant en argument... des fonctions !}
 
 \begin{exer}[Il y a une infinité de nombre premiers]
 	Démontrer qu'il y a une infinité de nombre premiers.
@@ -96,7 +98,7 @@ On note $\RR^3$ l'espace euclidien à trois dimensions.
 
 
 \begin{exer}[La mourre]
-	Deux joueurs ont chacun une main dans le dos, avec un certain nombres de doigts dressés. Chacun annonce un nombre entre 0 et 10, puis ils présent leur main cachée: celui qui a deviné le nombre total de doigts dressés gagne.
+	Deux joueurs ont chacun une main dans le dos, avec un certain nombres de doigts dressés. Chacun annonce un nombre entre 0 et 10, puis ils présentent leur main cachée: celui qui a deviné le nombre total de doigts dressés gagne.
 	
 	Pourquoi certains totaux arrivent plus souvent que d'autres alors qu'on peut considérer que le nombre de doigts est aléatoire ?
 \end{exer}
@@ -113,11 +115,39 @@ Jean-Michel est saoul et revient du bistrot. À chaque pas, il a une chance sur 
 \end{exer}
 
 \begin{figure}[!ht]
-	\includegraphics[width=0.9\textwidth]{marcheJM.png}
+	\includegraphics[width=0.9\textwidth]{../marcheJM.pdf}
 	\caption{La marche de Jean-Michel}
 \end{figure}
 
 \textit{Il s'agit évidemment d'un exercice de probabilités sur les variables aléatoires. L'effort de formalisation porte surtout sur modéliser correctement le déplacement de l'ivrogne par une suite de variables de Rademacher.}
+
+\clearpage
+
+\section*{Correction}
+
+\subsection*{Exercice 1}
+
+1) Quand le message arrive dans l'ordinateur $N+1$, deux cas de figure se présentent: \begin{itemize}
+\item soit le message sortant du $N$-ème ordinateur était le bon (avec probabilité $p_n$), dans lequel cas l'ordinateur suivant ne l'a pas modifié avec probabilité $1-q$
+\item soit il était altéré (avec probabilité $1-p_n$) mais le terminal $N+1$ le ré-inverse pour redonner le bon avec probabilité $q$.
+\end{itemize}
+La probabilité que le message sortant du $N+1$-ème terminal soit correct est donc donné par
+	\[ \tag{E}\label{recu}
+	p_{n+1} = (1-q) p_n + q(1-p_n) = (1-2q)p_n + q. \]
+
+2) En disant que le $0$-ème terminal est le poste de notre espion, la probabilité $p_0$ que le message en sortant soit correct est $1$. Le point fixe de la relation \eqref{recu} est $c = \frac 12$, est on en déduit la solution:
+\[
+p_n = \left(p_0 - \frac 12\right)(1-2q)^n + \frac 12 = \frac 12 (1-2q)^n + \frac 12.
+\]
+
+3) D'après la relation précédente, comme $-1 < 1-2q < 1$ quel que soit $q\in{]0,1[}$, on en déduit
+\[
+\lim_{n\to+\infty} p_n = \frac 12.
+\]
+
+La chose surprenante est bien évidemment le fait que la probabilité que le dernier ordinateur reçoive le bon est message est \textit{toujours} égale à $\frac 12$, quel que soit la probabilité $q$ que le message soit conservé à chaque fois !
+
+\subsection*{Exercice 5}
 
 On note $X_t$ la position de Jean-Michel à l'instant $t\in\NN$: c'est une variable aléatoire réelle discrète puisqu'il se déplace d'une unité à chaque instant.
 
