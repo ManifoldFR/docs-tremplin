@@ -1,0 +1,187 @@
+\documentclass[12pt]{article}
+\usepackage[affil-it]{authblk}
+\usepackage{polyglossia}
+\usepackage[a4paper,hmargin=3.4cm]{geometry}
+\usepackage{mathtools, amssymb, amsfonts}
+\usepackage{amsthm}
+\usepackage{fontspec}
+\usepackage{titling}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{titling}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption,subcaption}
+\usepackage{tikz}
+\usepackage[locale = FR, exponent-product = \cdot, inter-unit-product = .]{siunitx}
+\usetikzlibrary{arrows,shapes,calc,angles,decorations.markings,patterns,decorations.pathmorphing}
+\usepackage[shortlabels]{enumitem}
+\usepackage{comment}
+
+\setdefaultlanguage{french}
+\frenchspacing
+
+\newcommand{\RR}{\mathbb R}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\KK}{\mathbb K}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\LL}{\mathbb L}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\VV}{\mathbb V}
+
+%%%
+\theoremstyle{definition}
+
+\newmdtheoremenv[%
+	backgroundcolor=red!10,
+	linecolor=red!60!black,
+	linewidth=2pt,
+	topline=false,
+	rightline=false,
+	bottomline=false]{exer}{Exercice}
+
+\newmdtheoremenv[%
+backgroundcolor=blue!10,
+linecolor=blue!60!black,
+linewidth=2pt,
+topline=false,
+rightline=false,
+bottomline=false]{defn}{Définition}
+
+\newmdtheoremenv[%
+backgroundcolor=orange!10,
+linecolor=orange!60!black,
+linewidth=2pt,
+topline=false,
+rightline=false,
+bottomline=false]{exem}{Exemple}
+
+
+\pretitle{\begin{center}\LARGE
+	\hrulefill\newline}
+\title{\textsc{Tremplin: Séance 3}}
+\posttitle{
+\end{center}\vspace{-1em}
+\hrulefill}
+\date{\today}
+
+\preauthor{\begin{center}}
+\author{}
+\postauthor{\end{center}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Énoncés}
+
+\subsection*{Autour des suites}
+
+\begin{exer}
+	
+\end{exer}
+
+\subsection*{Suites de nombres complexes}
+
+Vous connaissez déjà la notion de suite de nombres réels. On définit ci-après la notion de suite de nombres complexes:
+\begin{defn}[Suite complexe]
+Une \textit{suite de nombres complexes} est une application de l'ensemble $\NN$ des entiers naturels dans l'ensemble $\CC$ des nombres complexes. Étant donné une suite $u$, on appelle \textit{terme} les images $u(n)$ des entiers $n$ par $u$, et on les note plutôt $u_n$. La suite $u$ se note alors classiquement $(u_n)_{n\in\NN}$.
+\end{defn}
+
+\begin{exem}
+La suite définie par $u_n = (2+i)^n$ est une suite de nombres complexes. Il en est de même de la suite $\left((1/2)^n\right)$ (en effet, toute suite de nombres réels est aussi une suite de nombres complexes puisque $\RR\subset \CC$).
+\end{exem}
+
+Pour analyser le comportement d'une suite de réels, vous avez défini en cours les notions de \textit{convergence} et de \textit{limite}. La définition suivante étend alors le concept à une suite de complexes.
+
+\begin{defn}
+Soit $(z_n)_{n\in\NN}$ une suite de nombres complexes. Soit $\ell \in\CC$. On dit que \textit{la suite $(z_n)$ converge vers $\ell$} lorsque la suite de nombres réels
+$\left(
+|z_n -\ell|\right)_{n\in\NN}
+$
+converge vers zéro. On notera comme dans le cas réel
+\[
+\lim_{n\to\infty}z_n = \ell \quad\text{ou}\quad z_n \xrightarrow[n\to\infty]{}\ell.
+\]
+\end{defn}
+
+\begin{exer}
+Soit $(z_n)$ une suite de nombres complexes.\begin{enumerate}
+	\item Montrer qu'il existe deux suites de nombres réels $(a_n)_{n\in\NN}$ et $(b_n)_{n\in\NN}$ telles que
+	\[
+	\forall n\in\NN \quad z_n = a_n + ib_n.
+	\]
+	\item Montrer que si $(z_n)$ converge vers une limite $\ell\in\CC$, alors les suites $(a_n)$ et $(b_n)$ également, et exprimer leurs limites.
+	\item Montrer réciproquement que si les suites $(a_n)$ et $(b_n)$ convergent vers des réels $a$ et $b$, alors $(z_n)$ converge vers une limite qu'on exprimera.
+\end{enumerate} 
+\noindent\textbf{Indication} On remarquera l'inégalité suivante (démonstration ?):
+\[
+\forall z\in\CC \quad |\Re(z)| \leq |z|\text{ et }|\Im(z)| \leq |z|
+\]
+\end{exer}
+
+\begin{exer}
+Cet exercice s'intéresse aux conditions de convergence et de périodicité de suites complexes définies par une relation de récurrence simple.
+\begin{enumerate}
+	\item Soient $a\in\CC$. Déterminer une condition suffisante sur $a$ pour que la suite de relation de récurrence
+	\[
+	\left\{
+	\begin{array}{rll}
+	z_{n+1} &= &az_n\\
+	z_0 &\in &\CC
+	\end{array}
+	\right.
+	\]
+	converge.
+	\item Que peut-il se passer si cette condition n'est pas vérifiée ? Distinguer le cas $|a| = 1$.
+\end{enumerate}
+On dit qu'une suite de complexes $(z_n)_{n\in\NN}$ est \textit{périodique} s'il existe un entier $T\in\NN$ tel que
+\[
+\forall n\in\NN\quad z_{n+T} = z_n.
+\]
+On dira alors que $(z_n)$ est \textit{$T$-périodique}. Ainsi, les suites constantes sont périodiques (de toute période), mais ce ne sont pas les seules.
+\begin{enumerate}[resume]
+	\item On considère encore une suite définie par une relation de récurrence linéaire $z_{n+1} = az_n$. Trouver une condition sur $a$ pour que $(z_n)$ soit périodique et non nulle.
+\end{enumerate}
+
+\noindent\textbf{Indication} On montrera qu'alors $|a| = 1$, et on remarquera que les nombres complexes de module 1 s'écrivent sous la forme $a = e^{i\theta}$ où $\theta\in\RR$.
+\end{exer}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.86\textwidth]{resources/logaro.pdf}
+	\caption{Une spirale logarithmique \textbf{convergente}, avec la relation de récurrence $z_{n+1} = 0,\!9e^{i\pi/4}z_n$. Simulation sous Python avec $N=100$ points.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.84\textwidth}
+	\includegraphics[width=\textwidth]{resources/periodico.pdf}
+	\subcaption{Une suite périodique, avec la relation de récurrence $z_{n+1} = e^{i\pi/18}z_n$. $N=36$ points.}
+	\end{subfigure}
+	
+	
+	\begin{subfigure}{0.84\textwidth}
+	\includegraphics[width=\textwidth]{resources/notperiodico.pdf}
+	\subcaption{Un... truc ? avec la relation de récurrence $z_{n+1} = e^{1,3i}z_n$. $N=30$ points.}
+	\end{subfigure}
+	\caption{Simulations sous Python de suites $z_{n+1} = a^z_n$ avec $|a| = 1$.}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.86\textwidth]{resources/divergo.pdf}
+	\caption{Une spirale logarithmique \textbf{divergente}, avec la relation de récurrence $z_{n+1} = 1,\!1e^{i\pi/6}z_n$. Simulation sous Python avec $N=20$ points.}
+\end{figure}
+
+\end{document}
