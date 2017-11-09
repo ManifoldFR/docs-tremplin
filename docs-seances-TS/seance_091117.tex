@@ -85,8 +85,19 @@ bottomline=false]{exem}{Exemple}
 
 \subsection*{Autour des suites}
 
-\begin{exer}
+\begin{exer}[Une approximation de la racine carrée de 2]
+	On considère la suite de nombres réels $(u_n)$ de premier terme un entier $u_0\geq 2$, vérifiant la relation de récurrence \[
+	u_{n+1} = \frac{u_n^2+2}{2u_n}.
+	\]
 	
+	Le but de l'exercice est de montrer que cette suite constitue une approximation de $\sqrt{2}$.
+	\begin{enumerate}
+		\item Montrer que $(u_n)$ est une suite de nombres rationnels.\\
+		\textbf{Indication} On montrera que les termes de la suite s'écrivent $u_n = p_n/q_n$ où $(p_n)$ et $(q_n)$ sont des suites de nombres entiers.
+		\item Montrer que pour tout $n$, $u_n \geq \sqrt 2$.
+		\item En étudiant le signe de $u_{n+1} - u_n$, montrer que $(u_n)$ est décroissante.
+		\item Conclure.
+	\end{enumerate}
 \end{exer}
 
 \subsection*{Suites de nombres complexes}
