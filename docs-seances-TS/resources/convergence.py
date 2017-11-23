@@ -3,9 +3,12 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import sys
 
+# Suite u_n
 def u(n):
-    return n*np.sin(n/np.pi)
+    return n*(np.sin(n*np.pi/2)+1)
 
+
+# Fonction pour afficher un graphe de la suite entre les entiers a et N
 def graphe(a,N):
     res = []
     abscisses = list(range(a,N+1))
@@ -15,9 +18,9 @@ def graphe(a,N):
     fig = plt.figure()
     ax = plt.subplot(111)
     ax.grid(True)
-    ax.plot(abscisses,res, 'r.')
-    ax.plot(abscisses,-np.array(abscisses),'b.')
-    ax.plot(abscisses,np.array(abscisses),'b.')
+    ax.plot(abscisses,res, 'r.--')
+    ax.plot(abscisses,2*np.array(abscisses),'b.')
+    ax.plot(abscisses,0*np.array(abscisses),'b.')
 
     ax.set_xlabel("n")
     ax.set_ylabel("un")

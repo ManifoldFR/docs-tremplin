@@ -7,6 +7,7 @@
 \usepackage{fontspec}
 \usepackage{titling}
 \usepackage{float}
+\usepackage{multicol}
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{xcolor}
@@ -65,6 +66,15 @@ topline=false,
 rightline=false,
 bottomline=false]{exem}{Exemple}
 
+\theoremstyle{theorem}
+\newmdtheoremenv[%
+backgroundcolor=green!10,
+linecolor=green!60!black,
+linewidth=2pt,
+topline=false,
+rightline=false,
+bottomline=false]{prop}{Propriété}
+
 
 \pretitle{\begin{center}\LARGE
 	\hrulefill\newline}
@@ -104,7 +114,81 @@ Le cas échéant, on dira que $(u_n)$ converge vers $\ell$ (quand $n$ tend vers 
 \]
 
 On omettra souvent la mention que $n$ tend vers l'infini, sans ambigüité.
+
+Dans le cas contraire, on dira que $u$ \emph{diverge}.
 \end{defn}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.85\textwidth]{resources/convergence.pdf}
+	\caption{Un exemple de suite convergente.}
+\end{figure}
+
+\begin{exer}
+Les suites suivantes convergent-elles ?
+\begin{multicols}{2}
+\begin{itemize}
+	\item $u_n = \dfrac1n +1$
+	\item $u_n = \sin\left(\dfrac{n\pi}{2}\right) $
+	\item $u_n = \dfrac 1n\sin\left(\dfrac 1n\right)$
+	\item $u_n = \begin{cases}
+	1 & \text{si }\sqrt n\in\NN\\
+	0 & \text{sinon}
+	\end{cases}$
+\end{itemize}
+\end{multicols}
+\end{exer}
+
+\begin{defn}[Divergence vers l'infini]
+Soit $(u_n)$ une suite de nombres réels. On dit que $u$ \emph{tend vers $+\infty$} si pour tout $A\in\RR$, il existe $n_0\in\NN$ tel que
+\[
+\forall n\geq n_0\quad u_n \geq A
+\]
+ou, autrement dit, pour toute borne $A$ que l'on peut se fixer, tous les termes de la suite après $n_0$ dépassent $A$.
+\end{defn}
+
+\begin{exer}
+Écrire une définition tendre vers $-\infty$.
+\end{exer}
+
+On remarquera qu'une suite qui tend vers l'infini ne converge pas.
+
+\begin{exer}
+Les suites suivantes tendent-elles vers $\pm\infty$ ?
+\begin{itemize}
+	\item $u_n = n\frac\pi 2$
+	\item $u_n = n\sin\left(n\frac\pi2\right)$
+	\item $u_n = n\left(2+\sin\left(n\dfrac\pi2\right)\right)$
+\end{itemize}
+\end{exer}
+
+\begin{defn}
+	Une suite $(u_n)$ est dite \emph{bornée} s'il existe un réel $B > 0$ tel que
+	\[
+	\forall n\in\NN\quad |u_n|\leq B
+	\]
+\end{defn}
+
+\begin{prop}
+Soient $u$ et $v$ deux suites de nombres réels. On suppose que $u$ est bornée et que $v$ tend vers 0. Alors:
+\[
+u_nv_n \xrightarrow[n\to\infty]{}0.
+\]
+\end{prop}
+
+\begin{exer}[Formes indéterminées]
+On se propose d'étudier la convergence de suites définies par des fractions dont les numérateurs et dénominateurs divergent.
+
+Tout d'abord,
+\[
+\dfrac{5n^2 + 4n - 5}{3n^2+2n}
+\]
+
+Ensuite,
+\[
+\frac{5\sqrt n + 4}{6n + 2\sqrt n}\]
+
+\end{exer}
 
 \begin{exer}[Une approximation de la racine carrée de 2]
 	On considère la suite de nombres réels $(u_n)$ de premier terme un entier $u_0\geq 2$, vérifiant la relation de récurrence \[
