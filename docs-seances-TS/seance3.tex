@@ -36,6 +36,7 @@
 \newcommand{\PP}{\mathbb P}
 \newcommand{\EE}{\mathbb E}
 \newcommand{\VV}{\mathbb V}
+\renewcommand{\epsilon}{\varepsilon}
 
 %%%
 \theoremstyle{definition}
@@ -84,6 +85,26 @@ bottomline=false]{exem}{Exemple}
 \section*{Énoncés}
 
 \subsection*{Autour des suites}
+
+On se propose dans cette section d'étudier plus finement la notion de convergence de suites dans le corps $\RR$ des nombres réels.
+
+Tout d'abord, donnons une autre définition, plus formelle (celle qui vous sera introduite dans le supérieur), de la convergence de suites.
+
+\begin{defn}[Convergence d'une suite]
+Soit $(u_n)$ une suite de nombres réels. On dit que la suite $u$ \emph{converge} s'il existe un nombre réel $\ell$ tel que pour toute << marge d'erreur >> $\epsilon > 0$, il existe un rang $n_0\in\NN$ tel que
+\[
+\forall n\geq n_0\quad
+|u_n - \ell| \leq \epsilon
+\]
+ou, autrement dit, tel que tout les termes de la suite à partir du rang $n_0$ restent à $\epsilon$ près du réel $\ell$.
+
+Le cas échéant, on dira que $(u_n)$ converge vers $\ell$ (quand $n$ tend vers l'infini), et on notera
+\[
+\lim_{n\to\infty} u_n = \ell\quad \text{ou}\quad u_n\xrightarrow[n\to\infty]{}\ell.
+\]
+
+On omettra souvent la mention que $n$ tend vers l'infini, sans ambigüité.
+\end{defn}
 
 \begin{exer}[Une approximation de la racine carrée de 2]
 	On considère la suite de nombres réels $(u_n)$ de premier terme un entier $u_0\geq 2$, vérifiant la relation de récurrence \[
