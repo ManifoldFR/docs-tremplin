@@ -1,0 +1,259 @@
+\documentclass[12pt]{article}
+\usepackage[affil-it]{authblk}
+\usepackage{polyglossia}
+\usepackage[a4paper,hmargin=3.4cm]{geometry}
+\usepackage{mathtools, amssymb, amsfonts}
+\usepackage{amsthm}
+\usepackage{fontspec}
+\usepackage{titling}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{mdframed}
+\usepackage{titling,titlesec}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption,subcaption}
+\usepackage{tikz}
+\usepackage[locale = FR, exponent-product = \cdot, inter-unit-product = .]{siunitx}
+\usetikzlibrary{arrows,shapes,calc,angles,decorations.markings,patterns,decorations.pathmorphing}
+\usepackage[shortlabels]{enumitem}
+\usepackage{comment}
+
+\setdefaultlanguage{french}
+\frenchspacing
+
+\newcommand{\RR}{\mathbb R}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\KK}{\mathbb K}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\LL}{\mathbb L}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\VV}{\mathbb V}
+\renewcommand{\epsilon}{\varepsilon}
+
+
+%%%
+
+\setitemize{itemsep=0.6pt,topsep=2pt}
+
+\theoremstyle{definition}
+
+\newmdtheoremenv[%
+	backgroundcolor=BrickRed!20!red!20,
+	linecolor=red!60!black,
+	linewidth=2pt,
+	topline=false,
+	rightline=false,
+	bottomline=false]{exer}{Exercice}
+
+\newmdtheoremenv[%
+backgroundcolor=blue!10,
+linecolor=blue!60!black,
+linewidth=2pt,
+topline=false,
+rightline=false,
+bottomline=false]{defn}{Définition}
+
+\newmdtheoremenv[%
+backgroundcolor=orange!10,
+linecolor=orange!60!black,
+linewidth=2pt,
+topline=false,
+rightline=false,
+bottomline=false]{exem}{Exemple}
+
+\theoremstyle{theorem}
+\newmdtheoremenv[%
+backgroundcolor=green!10,
+linecolor=green!60!black,
+linewidth=2pt,
+topline=false,
+rightline=false,
+bottomline=false]{prop}{Propriété}
+
+\newmdtheoremenv[%
+backgroundcolor=green!10!orange!40,
+linecolor=yellow!60!black,
+linewidth=2pt,
+topline=false,
+rightline=false,
+bottomline=false]{thm}{Théorème}
+
+\theoremstyle{remark}
+\newtheorem*{rapl}{Rappel}
+
+%%% Section formatting %%%
+
+\titleformat*{\subsection}{\Large\color{blue!40!cyan!40!black}\sffamily}
+
+\pretitle{\begin{center}\LARGE
+	\hrulefill\newline}
+\title{\textsc{Tremplin: Séance 4}\\ Topologie de $\RR$, Théorème des valeurs intermédiaires}
+\posttitle{
+\end{center}\vspace{-1em}
+\hrulefill}
+\date{\today}
+
+\preauthor{\begin{center}}
+\author{}
+\postauthor{\end{center}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Suites adjacentes}
+
+Les suites adjacentes, en plus d'être un excellent cas d'application du théorème de la limite monotone que vous connaissez pour les suites réelles, sont un outil très pratique en analyse réelle pour démontrer l'existence de limite pour des suites ou des fonctions.
+
+\begin{defn}[Suites adjacentes]
+On dit que deux suites de nombres réels $(u_n)$ et $(v_n)$ sont \textit{adjacentes} lorsque:
+\begin{itemize}
+	\item $u$ est croissante,
+	\item $v$ est décroissante,
+	\item $u_n - v_n \longrightarrow 0$
+\end{itemize}
+\end{defn}
+
+Le \textit{lemme}\footnote{Un \textit{lemme}, en mathématiques et en logique mathématique, est un résultat intermédiaire sur lequel on s'appuie pour conduire la démonstration d'un théorème plus important.\\
+Synonyme [prépa]: << énorme astuuuuce >>.} suivant sera très utile pour démontrer le théorème des suites adjacentes.
+
+\begin{exer}
+	Montrer qu'alors, pour tous entiers $p$ et $q$,
+	\[
+	u_p \leq v_q
+	\]
+\end{exer}
+
+
+Toute la construction des suites adjacentes n'est faite que pour obtenir le théorème suivant:
+
+\begin{thm}[Suites adjacentes, auteur inconnu]
+	Si $u$ et $v$ sont adjacentes, alors $u$ et $v$ convergent vers une même limite $\ell\in\RR$.
+\end{thm}
+
+\begin{exer}
+	Démontrer le théorème en utilisant l'Exercice 1.
+\end{exer}
+
+\section*{Théorème des valeurs intermédiaires}
+
+Le théorème des valeurs intermédiaires est lui aussi fondamental, en analyse réelle, pour démontrer l'existence de solutions à des équations dont on ne peut pas forcément expliciter une solution (ou dont il faut prouver l'existence avant le calcul).
+
+\begin{thm}[Théorème des valeurs intermédiaires, Bolzano, 1817]
+	Soit $f:[a,b]\longrightarrow\RR$ une fonction continue de la variable réelle définie sur un segment $[a,b]$ \emph{non réduit à un point} (i.e. $a < b$).
+	
+	Supposons que $f(a) < 0 $ et $f(b) > 0$. Alors, il existe un réel $c\in{]a,b[}$ tel que
+	\[
+	f(c) = 0.
+	\]
+\end{thm}
+
+Nous allons le démontrer au cours de cette séance à l'aide des suites adjacentes vues plus haut. Mais avant cela, quelques applications\ldots
+
+
+\subsection*{Théorème du point fixe}
+
+Les théorèmes de point fixe sont omniprésents en analyse, et permet notamment de démontrer en utilisant des récurrences et des itérations l'existence de solutions à des problèmes qui peuvent êtres complexes, comme par exemple l'existence de solutions à des équations différentielles. (Un problème de la forme $y'(x) = f(y(x))$)
+
+\begin{exer}[Point fixe de Brouwer-Hadamard, 1910, version simple]
+Soit $f:[0,1]\longrightarrow[0,1]$ une fonction \textbf{continue}. Montrer qu'il existe $c\in[0,1]$ tel que
+\[
+f(c) = c.
+\]
+\end{exer}
+
+
+Il existe des variantes plus compliquées du théorème de point de fixe de Brouwer, par exemple dans les espaces de vecteurs ou des espaces de fonctions\ldots
+
+\subsection*{Un résultat peu important mais très utile}
+
+Le résultat suivant sur les polynômes est un grand classique en analyse réelle. Il intervient notamment lors de la démonstration que tout polynôme réel s'écrit comme produit de fonctions affines et de trinômes du second degré à discriminants négatifs.
+
+\begin{exer}
+	Soit $P$ une fonction polynomiale à coefficients réels \textbf{de degré impair}. Montrer que $P$ admet une racine réelle (c'est-à-dire s'annule au moins une fois sur $\RR$).
+\end{exer}
+
+\subsection*{Démonstration du théorème des valeurs intermédiaires}
+
+\begin{rapl}
+Si $f$ est une fonction \textbf{continue} sur un intervalle réel $I$, et $x_n$ une suite d'éléments de $I$ convergeant vers $x\in I$, alors
+\[
+f(x_n)\xrightarrow[n\to\infty]{} f(x).
+\]
+\end{rapl}
+
+\begin{exer}
+Démontrer le théorème des valeurs intermédiaires à l'aide des suites adjacentes.
+
+L'idée est la suivante: on essaie d'approcher $c$ par des suites adjacentes, définies par récurrence. La construction est la suivante:
+
+On pose $a_0 = a$, $b_0 = b$. Introduisons la suite $f(d_n)$ où $d_n:=\frac{a_n+b_n}{2}$. Si $f(d_n)\leq 0$, alors:
+\begin{align*}
+a_{n+1} &= d_n \\
+b_{n+1} &= b_n
+\end{align*}
+sinon
+\begin{align*}
+a_{n+1} &= a_n \\
+b_{n+1} &= d_n
+\end{align*}
+
+Et on termine\ldots
+\end{exer}
+
+Il existe une autre démonstration du théorème des valeurs intermédiaires qui fait intervenir la notion de \textit{borne supérieure} d'une partie de $\RR$ plutôt que les suites adjacentes.
+
+En effet, on considère l'ensemble
+\[
+X = \{x\in[a,b] \ |\ f(x) < 0  \}.
+\]
+et sa borne supérieure $c = \sup X$. D'après les propriétés de la borne supérieure dans $\RR$, il existe une suite strictement croissante $(c_n)$ d'éléments de $X$ telle que $c_n < c$ et $c_n\xrightarrow[n\to\infty]{} c$. Elle vérifie $f(c_n) < 0$ pour tout entier $n$, et la conservation des inégalités donne $f(c) \leq 0$.
+
+De même, il existe une suite $(d_n)$ convergeant vers $c$ telle que $d_n > c$, donc $d_n \not\in X$ et $f(d_n) \geq 0$. Par conservation des inégalités, on obtient donc $f(c) \geq 0$.
+
+Ainsi, on en déduit que $f(c) = 0$.
+
+\subsection*{Théorème de Rolle\footnote{Fils d'un marchand de Basse-Auvergne, Michel Rolle est d'abord clerc chez divers magistrats de cette région. En 1675, il s'installe à Paris, où il devient élève astronome de l'Académie royale des sciences en 1685 et pensionnaire géomètre en 1699. Il reçoit une pension de Jean-Baptiste Colbert en 1682\ldots}}
+
+Le théorème de Rolle est un autre grand classique de l'analyse réelle, vu en première année de classe préparatoire ou de licence de mathématiques. Il a des conséquences dramatiques, notamment le théorème et l'inégalité des accroissements finis (ou TAF/IAF, qui se généralise à des fonctions à des plusieurs variables), le théorème de la moyenne de Cauchy\ldots
+
+On admettra le théorème suivant, qui est un résultat lui aussi classique en analyse réelle, mais qui se démontre avec des concepts plus sophistiqués que nous n'avons pas vu ensemble.
+
+\begin{thm}[Théorème des bornes, Weierstrass, 1861]
+	Soit $f:[a,b]\longrightarrow\RR$ une fonction \textbf{continue} définie sur le segment $[a,b]$. Alors, la fonction $f$ est bornée \textbf{et atteint ses bornes}: il existe $c,d\in[a,b]$ tels que
+	\[
+	f(c) = \min_{x\in[a,b]} f(x)\quad\text{et}\quad f(d) = \max_{x\in[a,b]}f(x).
+	\]
+	
+	Dans ce cas, $c$ est un \emph{point de minimum} de $f$ et $d$ est un \emph{point de maximum}.
+\end{thm}
+
+Sa démonstration se fait par un simple raisonnement par l'absurde, mais fait intervenir simultanément le concept de \textit{continuité uniforme} et le théorème de Bolzano-Weierstrass sur les suites extraites.
+
+\begin{thm}[Théorème de Rolle, 1691]
+Soit $f:[a,b]\longrightarrow\RR$ une fonction continue sur le segment $[a,b]$, dérivable sur son intérieur $]a,b[$.
+
+On suppose que $f(a) = f(b)$. Alors, il existe $c\in{]a,b[}$ tel que
+\[
+f'(c) = 0.
+\]
+\end{thm}
+
+
+Maintenant, démontrons-le à l'aide des théorèmes vus précédemment:
+
+\begin{exer}
+Démontrer le théorème de Rolle en considérant les points de minimum ou de maximum de $f$ sur $[a,b]$. Que se passe-t-il quand ils sont confondus ?
+\end{exer}
+
+
+\end{document}
