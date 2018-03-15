@@ -80,8 +80,8 @@ rightline=false,
 bottomline=false]{prop}{Propriété}
 
 \newmdtheoremenv[%
-backgroundcolor=green!10!orange!40,
-linecolor=yellow!60!black,
+backgroundcolor=green!10!orange!30,
+linecolor=orange!70!black,
 linewidth=2pt,
 topline=false,
 rightline=false,
@@ -148,7 +148,7 @@ Toute la construction des suites adjacentes n'est faite que pour obtenir le thé
 
 Le théorème des valeurs intermédiaires est lui aussi fondamental, en analyse réelle, pour démontrer l'existence de solutions à des équations dont on ne peut pas forcément expliciter une solution (ou dont il faut prouver l'existence avant le calcul).
 
-\begin{thm}[Théorème des valeurs intermédiaires, Bolzano, 1817]
+\begin{thm}[des valeurs intermédiaires, Bolzano, 1817]
 	Soit $f:[a,b]\longrightarrow\RR$ une fonction continue de la variable réelle définie sur un segment $[a,b]$ \emph{non réduit à un point} (i.e. $a < b$).
 	
 	Supposons que $f(a) < 0 $ et $f(b) > 0$. Alors, il existe un réel $c\in{]a,b[}$ tel que
@@ -197,17 +197,15 @@ Démontrer le théorème des valeurs intermédiaires à l'aide des suites adjace
 L'idée est la suivante: on essaie d'approcher $c$ par des suites adjacentes, définies par récurrence. La construction est la suivante:
 
 On pose $a_0 = a$, $b_0 = b$. Introduisons la suite $f(d_n)$ où $d_n:=\frac{a_n+b_n}{2}$. Si $f(d_n)\leq 0$, alors:
-\begin{align*}
-a_{n+1} &= d_n \\
-b_{n+1} &= b_n
-\end{align*}
+\begin{equation*}
+a_{n+1} = d_n\quad\text{et}\quad
+b_{n+1} = b_n
+\end{equation*}
 sinon
-\begin{align*}
-a_{n+1} &= a_n \\
-b_{n+1} &= d_n
-\end{align*}
-
-Et on termine\ldots
+\begin{equation*}
+a_{n+1} = a_n \quad\text{et}\quad
+b_{n+1} = d_n
+\end{equation*}
 \end{exer}
 
 Il existe une autre démonstration du théorème des valeurs intermédiaires qui fait intervenir la notion de \textit{borne supérieure} d'une partie de $\RR$ plutôt que les suites adjacentes.
@@ -222,13 +220,13 @@ De même, il existe une suite $(d_n)$ convergeant vers $c$ telle que $d_n > c$, 
 
 Ainsi, on en déduit que $f(c) = 0$.
 
-\subsection*{Théorème de Rolle\footnote{Fils d'un marchand de Basse-Auvergne, Michel Rolle est d'abord clerc chez divers magistrats de cette région. En 1675, il s'installe à Paris, où il devient élève astronome de l'Académie royale des sciences en 1685 et pensionnaire géomètre en 1699. Il reçoit une pension de Jean-Baptiste Colbert en 1682\ldots}}
+\subsection*{Théorème de Rolle\footnote{Fils d'un marchand de Basse-Auvergne, Michel Rolle est d'abord clerc chez divers magistrats de cette région. En 1675, il s'installe à Paris, où il devient élève astronome de l'Académie royale des sciences [...]. Il reçoit une pension de Jean-Baptiste Colbert en 1682\ldots}}
 
 Le théorème de Rolle est un autre grand classique de l'analyse réelle, vu en première année de classe préparatoire ou de licence de mathématiques. Il a des conséquences dramatiques, notamment le théorème et l'inégalité des accroissements finis (ou TAF/IAF, qui se généralise à des fonctions à des plusieurs variables), le théorème de la moyenne de Cauchy\ldots
 
 On admettra le théorème suivant, qui est un résultat lui aussi classique en analyse réelle, mais qui se démontre avec des concepts plus sophistiqués que nous n'avons pas vu ensemble.
 
-\begin{thm}[Théorème des bornes, Weierstrass, 1861]
+\begin{thm}[des bornes, Weierstrass, 1861]
 	Soit $f:[a,b]\longrightarrow\RR$ une fonction \textbf{continue} définie sur le segment $[a,b]$. Alors, la fonction $f$ est bornée \textbf{et atteint ses bornes}: il existe $c,d\in[a,b]$ tels que
 	\[
 	f(c) = \min_{x\in[a,b]} f(x)\quad\text{et}\quad f(d) = \max_{x\in[a,b]}f(x).
@@ -239,7 +237,7 @@ On admettra le théorème suivant, qui est un résultat lui aussi classique en a
 
 Sa démonstration se fait par un simple raisonnement par l'absurde, mais fait intervenir simultanément le concept de \textit{continuité uniforme} et le théorème de Bolzano-Weierstrass sur les suites extraites.
 
-\begin{thm}[Théorème de Rolle, 1691]
+\begin{thm}[de Rolle, 1691]
 Soit $f:[a,b]\longrightarrow\RR$ une fonction continue sur le segment $[a,b]$, dérivable sur son intérieur $]a,b[$.
 
 On suppose que $f(a) = f(b)$. Alors, il existe $c\in{]a,b[}$ tel que
@@ -255,5 +253,12 @@ Maintenant, démontrons-le à l'aide des théorèmes vus précédemment:
 Démontrer le théorème de Rolle en considérant les points de minimum ou de maximum de $f$ sur $[a,b]$. Que se passe-t-il quand ils sont confondus ?
 \end{exer}
 
+À l'aide du théorème de Rolle, on démontre assez facilement le théorème des accroissements finis:
+\begin{thm}[des accroissements finis, ou TAF]
+Soit $f:[a,b]\longrightarrow\RR$ une fonction continue, dérivable sur $]a,b[$. Alors, il existe $c\in{]a,b[}$ tel que
+\[
+f'(c) = \frac{f(b)-f(a)}{b-a}.
+\]
+\end{thm}
 
 \end{document}
