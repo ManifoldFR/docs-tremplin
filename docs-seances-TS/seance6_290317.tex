@@ -1,0 +1,155 @@
+\documentclass{beamer}
+\usetheme{Boadilla}
+
+\usepackage{polyglossia}
+\usepackage{geometry}
+\usepackage{mathtools, amssymb, amsfonts}
+
+\usepackage{float}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage[locale = FR, exponent-product = \cdot, inter-unit-product = .]{siunitx}
+\usetikzlibrary{arrows,shapes,calc,angles,decorations.markings,patterns,decorations.pathmorphing}
+\usepackage[shortlabels]{enumitem}
+\usepackage{comment}
+
+\setdefaultlanguage{french}
+
+\newcommand{\RR}{\mathbb R}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\KK}{\mathbb K}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\LL}{\mathbb L}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\VV}{\mathbb V}
+
+%%%
+\theoremstyle{plain}
+\newtheorem{exer}{Exercice}
+
+
+\newtheorem{ques}{Question}
+
+\newtheorem{prop}{Proposition}
+
+
+\title{{\sffamily Tremplin: Séance 6}}
+
+\date{\today}
+
+\author{W. Jallet}
+
+\begin{document}
+	
+\begin{frame}
+	\maketitle
+	\url{https://github.com/ManifoldFR}
+\end{frame}
+
+\section*{Exercices}
+
+\begin{frame}
+
+\textit{Vous connaissez les suites, vous connaissez les intégrales... et les suites d'intégrales ?}
+
+L'\textit{intégrale} d'une fonction continue $f$ sur un segment $[a,b]$ de la droite réelle $\RR$ est le nombre réel noté
+\[
+\int_a^b f(x)\,dx
+\]
+Il représente l'aire \textit{algébrique} sous la courbe de la fonction $f$ : comptée \textit{positivement} là où $f$ est positive et \textit{négativement} là où elle est négative.
+\end{frame}
+
+\begin{frame}
+Une \textit{suite} n'est rien d'autre qu'une succession de nombres réels $(u_n)_{n\in\NN} = (u_0,u_1,\ldots)$, qui peut se définir par une \textit{formule explicite} pour chaque terme ou par une \textit{relation de récurrence}.
+
+\end{frame}
+
+\begin{frame}{Question}
+	\textit{<< Est-ce qu'on peut combiner les suites et les intégrales, du coup ? >>}
+\end{frame}
+
+\begin{frame}{}
+La notion se généralise lorsque l'intervalle d'intégration n'est pas un segment, notamment lorsqu'il est infini ou lorsque la fonction n'est pas défini en son bord.
+
+Soit $a > 0$. Montrer l'existence de la limite (et la calculer) 
+\[
+\lim_{a\to 0^+} \int_a^1 \frac 1{\sqrt{x}}\,dx
+\]\\
+Cette limite est appelée \textit{intégrale \textbf{impropre} sur l'intervalle $]0,1]$}, et elle est notée sans surprise
+\[
+\int_0^1 \frac 1{\sqrt{x}}\,dx
+\]
+Globalement, les opérations que vous connaissez sur les intégrales restent les mêmes.
+
+\end{frame}
+
+\begin{frame}
+En quoi n'est-ce pas la même notion d'intégrale que celle que vous connaissez ?\pause
+
+En effet, la fonction $x\longmapsto \frac{1}{\sqrt x}$ n'est \textbf{pas} continue en 0!
+
+Mais... \textbf{est-ce grave} ?
+\end{frame}
+
+\begin{frame}{L'intégrale classique fait des trucs cools}
+
+Considérons la suite d'intégrales définie \textbf{explicitement}\footnotemark par
+\[
+	I_n = \int_0^1 x^n\,dx
+\]\pause
+
+\begin{ques}
+Calculer la limite de $I_n$.
+\end{ques}
+
+\footnotetext[1]{la plupart du temps, on a affaire à des suites d'intégrales qui est définie explicitement... sauf dans la preuve du théorème de Cauchy-Lipschitz.}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{ques}
+	Si on note pour tout $n$ 
+	\[
+	f_n\colon x\in[0,1] \longmapsto x^n
+	\]
+	déterminer la limite de $\left(f_n(x)\right)_{n\in\NN}$ pour chaque $x$.
+\end{ques}
+
+\end{frame}
+
+
+\begin{frame}
+C'était prévisible...\pause
+
+Il existe même un théorème qui démontre que c'est vrai avec n'importe quelle suite de \textbf{fonctions continues} $f_n$ !\footnotemark 
+
+\footnotetext[2]{\url{https://wikipedia.org/Théorème_de_convergence_dominée}}
+\end{frame}
+
+\begin{frame}{Et avec des intégrales \textit{impropres} ?}
+
+On va regarder la suite
+\[
+J_n = \int_0^{+\infty} e^{-x/n}\, dx
+\]
+d'intégrales des fonctions
+\[
+	g_n\colon x\in {[0,+\infty[} \longmapsto e^{-x/n}.
+\]
+
+
+\end{frame}
+
+
+
+
+\end{document}
